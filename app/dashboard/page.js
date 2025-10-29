@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ Import this
 import {
   Home,
   BookOpen,
@@ -16,6 +17,7 @@ import Assessment from "../learning-framework/assessment"; // adjust path
 
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboard");
+  const router = useRouter(); // ✅ Initialize router
 
   const menuItems = [
     { name: "Dashboard", icon: <Home size={20} /> },
@@ -82,10 +84,15 @@ export default function Dashboard() {
                 Welcome, John Doe
               </h1>
               <div className="flex items-center gap-4">
-                <button className="p-2 bg-[#253031] rounded-full shadow hover:bg-gray-100">
+                <button className="p-2 bg-[#253031] text-white rounded-full shadow hover:bg-[#2f3a3b]">
                   <Bell size={20} />
                 </button>
-                <button className="p-2 bg-[#253031] rounded-full shadow hover:bg-gray-100">
+
+                {/* ✅ Profile Button with navigation */}
+                <button
+                  onClick={() => router.push("/profile")}
+                  className="p-2 bg-[#253031] text-white rounded-full shadow hover:bg-[#2f3a3b]"
+                >
                   <User size={20} />
                 </button>
               </div>
