@@ -30,7 +30,7 @@ export default function Courses() {
     },
     {
       id: 4,
-      title: "English",
+      title: "English-Language-Arts",
       code: "ENG4U",
       instructor: "Ms. Taylor",
       progress: 95,

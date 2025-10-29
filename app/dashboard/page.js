@@ -70,7 +70,17 @@ export default function Dashboard() {
         </div>
 
         {/* Logout */}
-        <button className="flex items-center gap-2 bg-[#4b5961] hover:bg-[#5b6a72] px-4 py-2 rounded-lg text-sm">
+        <button
+          onClick={() => {
+            // Clear any stored session (optional)
+            localStorage.removeItem("user");
+            sessionStorage.clear();
+
+            // Redirect to login page
+            window.location.href = "/";
+          }}
+          className="flex items-center gap-2 bg-[#4b5961] hover:bg-[#5b6a72] px-4 py-2 rounded-lg text-sm transition"
+        >
           <LogOut size={18} /> Logout
         </button>
       </aside>
