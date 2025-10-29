@@ -121,7 +121,7 @@ export default function Profile() {
             <div className="bg-[#f9fafb] rounded-xl p-6 shadow-sm">
               <p className="font-semibold text-[#FB8B24] mb-2">Courses Taken:</p>
               <p className="text-gray-700">
-                Intro to AI, Database Systems, Human-Centered Design
+                Mathematics-30 | Biology-30 | Physical Education-30
               </p>
             </div>
             <div className="bg-[#f9fafb] rounded-xl p-6 shadow-sm">

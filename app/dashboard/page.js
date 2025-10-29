@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Assessment from "../learning-framework/assessment"; // adjust path
+import Courses from "../courses/page"; // adjust path
 
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboard");
@@ -21,7 +22,7 @@ export default function Dashboard() {
 
   const menuItems = [
     { name: "Dashboard", icon: <Home size={20} /> },
-    { name: "Courses", icon: <BookOpen size={20} /> },
+    { name: "Courses", icon: <BookOpen size={20} />},
     { name: "Learning Framework", icon: <Brain size={20} /> },
     { name: "IntelliBot", icon: <MessageSquare size={20} /> },
     { name: "Settings", icon: <Settings size={20} /> },
@@ -146,11 +147,18 @@ export default function Dashboard() {
           </>
         )}
 
+        {active === "Courses" && (
+          <div className="max-w-4xl mx-auto">
+            <Courses />
+          </div>
+        )}
+
         {active === "Learning Framework" && (
           <div className="max-w-4xl mx-auto">
             <Assessment />
           </div>
         )}
+
       </main>
     </div>
   );
