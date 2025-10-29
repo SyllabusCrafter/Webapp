@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Assessment from "../learning-framework/assessment"; // adjust path
+import Courses from "../courses/page"; // adjust path
 
 export default function Dashboard() {
   const [active, setActive] = useState("Dashboard");
@@ -21,7 +22,7 @@ export default function Dashboard() {
 
   const menuItems = [
     { name: "Dashboard", icon: <Home size={20} /> },
-    { name: "Courses", icon: <BookOpen size={20} /> },
+    { name: "Courses", icon: <BookOpen size={20} />},
     { name: "Learning Framework", icon: <Brain size={20} /> },
     { name: "IntelliBot", icon: <MessageSquare size={20} /> },
     { name: "Settings", icon: <Settings size={20} /> },
@@ -69,7 +70,17 @@ export default function Dashboard() {
         </div>
 
         {/* Logout */}
-        <button className="flex items-center gap-2 bg-[#4b5961] hover:bg-[#5b6a72] px-4 py-2 rounded-lg text-sm">
+        <button
+          onClick={() => {
+            // Clear any stored session (optional)
+            localStorage.removeItem("user");
+            sessionStorage.clear();
+
+            // Redirect to login page
+            window.location.href = "/";
+          }}
+          className="flex items-center gap-2 bg-[#4b5961] hover:bg-[#5b6a72] px-4 py-2 rounded-lg text-sm transition"
+        >
           <LogOut size={18} /> Logout
         </button>
       </aside>
@@ -146,11 +157,18 @@ export default function Dashboard() {
           </>
         )}
 
+        {active === "Courses" && (
+          <div className="max-w-4xl mx-auto">
+            <Courses />
+          </div>
+        )}
+
         {active === "Learning Framework" && (
           <div className="max-w-4xl mx-auto">
             <Assessment />
           </div>
         )}
+
       </main>
     </div>
   );
