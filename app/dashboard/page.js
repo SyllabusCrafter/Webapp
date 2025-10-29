@@ -34,7 +34,7 @@ export default function Dashboard() {
   });
 
   return (
-    <div className="flex min-h-screen bg-[#f5f5f7] font-sans">
+    <div className="flex min-h-screen bg-[#98473E] font-sans">
       {/* Sidebar */}
       <aside className="w-64 bg-[#253031] text-white flex flex-col justify-between p-6">
         <div>
@@ -91,7 +91,7 @@ export default function Dashboard() {
           <>
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
-              <h1 className="text-3xl font-semibold text-black">
+              <h1 className="text-3xl font-semibold text-white">
                 Welcome, John Doe
               </h1>
               <div className="flex items-center gap-4">

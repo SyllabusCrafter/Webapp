@@ -39,7 +39,7 @@ export default function Courses() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7] p-10 font-sans text-black">
+    <div className="min-h-screen bg-[#253031] p-10 font-sans text-white rounded-2xl">
       {/* Header */}
       <h1 className="text-4xl font-semibold mb-8">Your Courses</h1>
 

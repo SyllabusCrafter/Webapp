@@ -23,7 +23,7 @@ export default function Profile() {
   const toggleEdit = () => setEditing(!editing);
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7] p-10 font-sans text-black">
+    <div className="min-h-screen bg-[#98473E] p-10 font-sans text-black">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <button
@@ -33,13 +33,13 @@ export default function Profile() {
           <ArrowLeft size={18} /> Back
         </button>
 
-        <h1 className="text-3xl font-semibold text-[#253031]">
+        <h1 className="text-3xl font-semibold text-white">
           Profile Settings
         </h1>
 
         <button
           onClick={toggleEdit}
-          className="flex items-center gap-2 bg-[#FB8B24] text-black px-4 py-2 rounded-lg hover:bg-[#ff9e3d]"
+          className="flex items-center gap-2 bg-[#FB8B24] text-[#253031] px-4 py-2 rounded-lg hover:bg-[#ff9e3d]"
         >
           {editing ? <Save size={18} /> : <Edit3 size={18} />}
           {editing ? "Save Changes" : "Edit Profile"}
