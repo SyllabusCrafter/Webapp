@@ -58,10 +58,10 @@ export default function Dashboard() {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-semibold text-black">Welcome, John Doe</h1>
           <div className="flex items-center gap-4">
-            <button className="p-2 bg-white text-black rounded-full shadow hover:bg-gray-100">
+            <button className="p-2 bg-[#253031] rounded-full shadow hover:bg-gray-100">
               <Bell size={20} />
             </button>
-            <button className="p-2 bg-white text-black rounded-full shadow hover:bg-gray-100">
+            <button className="p-2 bg-[#253031] rounded-full shadow hover:bg-gray-100">
               <User size={20} />
             </button>
           </div>
