@@ -3,9 +3,18 @@
 import { useState } from "react";
 import { Home, BookOpen, Brain, MessageSquare, Settings, LogOut, Bell, User } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
+  const router = useRouter();
   const [active, setActive] = useState("Dashboard");
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+
+  const handleLogout = () => {
+    // Perform your logout logic here — e.g., clear auth tokens
+    localStorage.removeItem("token");
+    router.push("/"); // Redirect back to login page
+  };
 
   const menuItems = [
     { name: "Dashboard", icon: <Home size={20} /> },
@@ -46,8 +55,11 @@ export default function Dashboard() {
           </nav>
         </div>
 
-        {/* Logout */}
-        <button className="flex items-center gap-2 bg-[#4b5961] hover:bg-[#5b6a72] px-4 py-2 rounded-lg text-sm">
+        {/* Logout Button */}
+        <button
+          onClick={() => setShowLogoutConfirm(true)}
+          className="flex items-center gap-13 bg-[#4b5961] hover:bg-[#5b6a72] px-4 py-2 rounded-lg text-sm"
+        >
           <LogOut size={18} /> Logout
         </button>
       </aside>
@@ -107,6 +119,31 @@ export default function Dashboard() {
               30% Kinesthetic • 25% Read/Write • 25% Auditory • 20% Visual
             </div>
           </div>
+
+          {/* Logout Confirmation Modal */}
+            {showLogoutConfirm && (
+                <div className="fixed inset-0 bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-white rounded-xl p-8 shadow-xl text-center max-w-sm w-full">
+                    <h2 className="text-xl font-semibold mb-4 text-[#253031]">
+                    Are you sure you want to log out?
+                    </h2>
+                    <div className="flex justify-around mt-6">
+                    <button
+                        onClick={() => setShowLogoutConfirm(false)}
+                        className="bg-gray-300 text-gray-800 px-4 py-2 rounded-xl hover:bg-gray-400 transition"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        onClick={handleLogout}
+                        className="bg-[#FB8B24] text-white px-4 py-2 rounded-xl hover:bg-[#e27a1e] transition"
+                    >
+                        Yes, Log Out
+                    </button>
+                    </div>
+                </div>
+                </div>
+            )}
         </div>
       </main>
     </div>
